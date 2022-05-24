@@ -8,11 +8,22 @@ body {
 }
 
 nav {
-    display: block;
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    height: 100px;
+    background-color: white;
+    box-shadow: 0px 0px 20px 7px rgba(0,0,0,0.15);
+    align-items: center;
+    padding-inline: 3rem;
 }
 
 .i {
     font-style: italic;
+}
+
+.b {
+    font-weight: bold;
 }
 
 .sim {
@@ -28,12 +39,18 @@ nav {
 
 .container {
     display: flex;
+    padding-top: 9rem;
     flex-direction: column;
     align-items: center;
 }
 
 .page-header {
-    margin-inline: 22rem;
+    padding-inline: 10rem;
+    padding-block: 3rem;
+    width: 60vw;
+    background-image: url('./images/bg-header.jpeg');
+    background-color: rgba(255,255,255, 0.9);
+    background-blend-mode: lighten;
 }
 
 .page-header > .title {
@@ -50,17 +67,29 @@ nav {
     font-weight: 500;
 }
 
-.int-q {
+.sect {
     /* border: 1px solid black; */
     padding: 0;
-    margin-block: 2rem;
+    margin-block: 2.2rem;
     width: 60vw;
 }
 
-.int-q > .section-title {
+.section-title {
     margin: 0;
+    /* text-align: center; */
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.sect > ul {
+    line-height: 2.2rem;
+    font-size: 0.9rem;
+}
+
+hr {
+    margin-block: 2rem;
+    width: 50vw;
 }
 
 .mrsa-info {
@@ -68,8 +97,9 @@ nav {
     margin-top: 2rem;
 }
 
-.mrsa-info > p {
+p {
     margin: 0;
+    font-size: 1rem;
     font-weight: 500rem;
     line-height: 2.2rem;
     text-align: justify;

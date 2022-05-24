@@ -21,21 +21,40 @@
 
             <div class="mrsa-info">
                 <p><span class="i">Staphylococcus aureus</span> is a type of bacteria commonly found on the human skin, in the nose, armpit, groin, and other areas. Most of the time, this type of bacteria does not cause any harm.
-                However, in the right conditions, infections may occur. People colonized with this bacteria do not exhibit any symptoms and are still able to spread this bacteria through physical contact.
+                However, in the right conditions, infections may occur. Individuals colonized with this bacteria do not exhibit any symptoms and are still able to spread this bacteria through physical contact.
                 </p>
             </div>
-
-            <div class="int-q">
-                <h1 class="section-title">Interesting Questions</h1>
-                <p>something</p>
+            <hr>
+            <div class="sect">
+                <h1 class="section-title">QUESTIONS</h1>
+                <p>Before we try to run the simulation, let us first ask these questions to ourselves.</p>
+                <ul>
+                    <li>Is it possible to eradicate the bacteria in the population through means of limited physical contact?</li>
+                    <li>Would the entire population be overwhelmed with a large amount of infected individuals?</li>
+                    <li>Does the simulation used here represent the spread of MRSA in the actual world?</li>
+                </ul>
             </div>
 
-            <div class="setup">
-
+            <div class="sect">
+                <h1 class="section-title">SETUP OF THE SIMULATION</h1>
+                <p>In this simulation, there are <span class="i b">n</span> number of agents wandering randomly in the environment. Each tick of the simulation converts to one hour in real time. Two or more agents are considered interacting if they are close with each other. 
+                    In this simulation, only physical interactions are considered. Once agents interact, a random value will determine whether these agents will continue interacting with each other or continue wandering in the environment randomly.
+                </p>
+                <br>
+                <p>
+                    If a colonized or an infected agent interacts with an uncolonized individual, this agent can spread MRSA to the uncolonized individual, making the agent colonized.
+                </p>
+                <br>
+                <p>
+                    A random value is determined whether a colonized agent will spontaneously become infected. In this simulation, once agents become infected, one of two scenarios can happen.
+                    They can either choose to go to a healthcare facility where their chances of becoming uncolonized increases, or opt to provide self-care where the likelihood of becoming uncolonized is lower.
+                    In both cases, if they do not become uncolonized, they will still have the bacteria colonized in their body.
+                </p>
+                <br>
             </div>
 
             <div class="prop">
-
+                <h1 class="section-title">PROPERTIES OF THE DISEASE</h1>
             </div>
 
             <div class="discussion">
