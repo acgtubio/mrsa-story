@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+nav {
+    display: block;
+}
+
+.i {
+    font-style: italic;
+}
+
+.sim {
+    display: flex;
+}
+
+.sim > iframe {
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-header {
+    margin-inline: 22rem;
+}
+
+.page-header > .title {
+    /* border: 1px solid black; */
+    text-align: center;
+    font-size: 2.7rem;
+    margin-block: 0.5rem;
+}
+
+.page-header > .author {
+    margin-block: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.int-q {
+    /* border: 1px solid black; */
+    padding: 0;
+    margin-block: 2rem;
+    width: 60vw;
+}
+
+.int-q > .section-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.mrsa-info {
+    width: 60vw;
+    margin-top: 2rem;
+}
+
+.mrsa-info > p {
+    margin: 0;
+    font-weight: 500rem;
+    line-height: 2.2rem;
+    text-align: justify;
+}
