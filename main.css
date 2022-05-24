@@ -23,6 +23,10 @@ nav {
     font-weight: 600;
 }
 
+nav > h6 {
+    font-weight: 500;
+}
+
 .i {
     font-style: italic;
 }
