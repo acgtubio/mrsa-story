@@ -10,7 +10,8 @@
     
     <body>
         <nav>
-            <h1>Main Story</h1>
+            <h1 class="nav-header">MRSA Simulation</h1>
+            <h6>CSC133 - Modeling and Simulation</h6>
         </nav>
         
         <div class="container">
@@ -22,6 +23,9 @@
             <div class="mrsa-info">
                 <p><span class="i">Staphylococcus aureus</span> is a type of bacteria commonly found on the human skin, in the nose, armpit, groin, and other areas. Most of the time, this type of bacteria does not cause any harm.
                 However, in the right conditions, infections may occur. Individuals colonized with this bacteria do not exhibit any symptoms and are still able to spread this bacteria through physical contact.
+
+                <br><br>
+                Methicillin-resistant <span class="i">Staphylococcus aureus</span>, on the other hand, causes one type of staph infection which can be difficult to treat due to its antibiotic resistance.
                 </p>
             </div>
             <hr>
@@ -34,11 +38,16 @@
                     <li>Does the simulation used here represent the spread of MRSA in the actual world?</li>
                 </ul>
             </div>
-
+            <hr>
             <div class="sect">
                 <h1 class="section-title">SETUP OF THE SIMULATION</h1>
                 <p>In this simulation, there are <span class="i b">n</span> number of agents wandering randomly in the environment. Each tick of the simulation converts to one hour in real time. Two or more agents are considered interacting if they are close with each other. 
                     In this simulation, only physical interactions are considered. Once agents interact, a random value will determine whether these agents will continue interacting with each other or continue wandering in the environment randomly.
+                </p>
+                <br>
+                <p>
+                    An agent can belong to these three different categories: <span class="i b">Uncolonized</span>, <span class="i b">Colonized</span>, and <span class="i b">Infected</span>. An agent is uncolonized if the MRSA bacterium is not present in an agent. Colonized agents are those with MRSA but are not infected and are asymptomatic.
+                    Lastly, uncolonized agents can develop an infection, moving them to the infected category.
                 </p>
                 <br>
                 <p>
@@ -52,26 +61,104 @@
                 </p>
                 <br>
             </div>
-
-            <div class="prop">
+            <hr>
+            <div class="sect">
                 <h1 class="section-title">PROPERTIES OF THE DISEASE</h1>
+                <p>
+                    From the study of Macal et al., the following values are used for the disease state transition:
+                    <br><br>
+                </p>
+
+                <p class="c">
+                    <span class="i b">a = 4.107 × 10 <sup>-5</sup></span><br>
+                    <span class="i b">b = 3.938 × 10 <sup>-6</sup></span><br>
+                    <span class="i b">e = 1.194 × 10 <sup>-4</sup></span><br><br>
+                </p>
+                <p>
+                    <span class='i b'>a</span> is the probability per hour an uncolonized agent interacting with agents who are either colonized or infected becomes colonized. <br>
+                    <span class="i b">b</span> is the probability per hour a colonized agent spontaneously transitions to the infected state. <br>
+                    <span class="i b">e</span> is the probability per hour a colonized agent spontaneously transitions to the uncolonized state.
+                </p>
+                <br>
+                <p>
+
+                </p>
             </div>
-
-            <div class="discussion">
-
-            </div>
-
-            <div class="insight">
-
-            </div>
-
-            <div class="ref">
-
-            </div>
-
-            <!-- <div class="sim">
+            <hr>
+            <div class="sim">
                 <iframe src="mrsa.html" frameborder="0"></iframe>
-            </div> -->
+            </div>
+            <hr>
+            <div class="sect">
+                <h1 class="section-title">DISCUSSION</h1>
+                <p>There are interesting scenarios that can occur depending on the initial parameters of the simulation. These parameters include the total population, the initial number of infected and colonized agents, likelihood of agents to go to healthcare, and the likelihood of agents to keep on interacting with other agents.</p>
+                <br>
+                <p>For now, we discuss results based on the previously stated transition values.</p><br>
+        
+                <p>
+                    Whenever the probability of the population to go to the hospitals when infected is considerably low, the number of colonized agents steadily decrases, while the number of uncolonized and infected agents increases steadily. This trend will continue
+                    until the number of colonized agents will rise again due to infected agents spreading the bacteria to uncolonized agents.
+                    <br><br>
+                    However, when this probability to go to the hospitals increases, the number of colonized and infected agents will steadily drop until MRSA is eradicated from the population.
+                    <br><br>
+                    <span class="b">But why does the number of colonized and infected agents go down to the point of total recovery?</span>
+                    <br><br>
+                    One reason is because of the stochastic nature of the agents' movements. The agents do not follow a complex behavior where they could go to 
+                    different places with varying levels of risk to contract the disease where they are closely grouped together for a certain amount of time. Coupled with the very low probability of transmission from colonized and infected agents to 
+                    uncolonized agents, the population eventually recovers from the disease.
+                    <br><br>
+                    <span class="b">What if the transmission rate is increased?</span>
+                    <br><br>
+                    In the case where the transmission rate is increased, the number of colonized agents would skyrocket and would stay high, while the number of both the uncolonized and infected agents 
+                    remain low. Intuitively, since the value of <span class="i b">b</span> (<span class="i">the probability per hour a colonized agent spontaneously transitions to the infected state.</span>) 
+                    is low, the number of infected agents would remain low.
+                    <br><br>
+                    <span class="b">What if the infection rate is increased?</span>
+                    <br><br>
+                    This would depend on the value of the hospitalization rate. If the rate of hospitalization is significantly low, the number of infected individuals would increase until the population if totally infected with the bacteria. Otherwise, the number of infected individuals would increase, 
+                    but would then steadily decrease until the entire population has recovered.
+                </p>
+            </div>
+            <hr>
+            <div class="sect">
+                <h1 class="section-title">KEY INSIGHTS</h1>
+                <p>
+                    From the questions we asked ourselves earlier, we can try to answer them given the results.
+
+                    <br><br>
+                    
+                    Based on the results demonstrated by testing different values for the hospitalization rates, we can conclude that by hospitalizing agents (effectively isolating their physical contact),
+                    it is possible to eradicate the bacteria in the population. This works because MRSA is spread through physical contact, and reducing physical contact means less bacteria spread from agent to agent.
+
+                    <br><br>
+                    For the second question, we can also answer yes to it. As mentioned earlier, if the rate of hospitalization of the agents are significantly low, 
+                    the rate of recovery of each agent will also be lower. This would result to infected agents spreading the bacteria to more uncolonized agents.
+                    <br><br>
+                    Lastly, when it comes to how representative the simulation is to the real world data, it is unfortunately far from the reality. The lack of different behavior of agents is a major factor. For instance, 
+                    there are no activities which would influence how likely agents will transmit the disease as well as be in a state of infection.
+                    <br><br>
+                    Some improvements that could be done to the simulation is by adding different locations where agents can gather and perform various activities. For example, groups of agents could have areas representing their household. 
+                    This would be helpful as different environments fosters different kinds of interactions which could represent the spread of MRSA more accurately.
+                </p>
+            </div>
+            <hr>
+            <div class="sect ref">
+                <h1 class="section-title">REFERENCES</h1>
+                <p>
+                    Barnes, S., Golden, B., & Wasil, E. (2010). MRSA Transmission Reduction Using Agent-Based Modeling and Simulation. INFORMS Journal on Computing, 22(4), 635–646. doi:10.1287/ijoc.1100.0386 
+                    <br><br>
+                    Centers for Disease Control and Prevention. (2011, January 17). Staphylococcus aureus in healthcare settings. Centers for Disease Control and Prevention. Retrieved May 24, 2022, from https://www.cdc.gov/hai/organisms/staph.html 
+                    <br><br>
+                    Macal, C. M., North, M. J., Collier, N., Dukic, V. M., Wegener, D. T., David, M. Z., … Lauderdale, D. S. (2014). Modeling the transmission of community-associated methicillin-resistant Staphylococcus aureus: a dynamic agent-based simulation. Journal of Translational Medicine, 12(1), 124. doi:10.1186/1479-5876-12-124 
+                    <br><br>
+                    Raboud, J., Saskin, R., Simor, A., Loeb, M., Green, K., Low, D. E., & McGeer, A. (2005). Modeling Transmission of Methicillin-Resistant Staphylococcus Aureus Among Patients Admitted to a Hospital. Infection Control & Hospital Epidemiology, 26(07), 607–615. doi:10.1086/502589 
+                    <br><br>
+                    Staphylococcus aureus. APIC. (n.d.). Retrieved May 24, 2022, from https://apic.org/monthly_alerts/staphylococcus-aureus/ 
+                    <br><br>
+                    Tübbicke, A., Hübner, C., Kramer, A., Hübner, N.-O., & Fleßa, S. (2012). Transmission rates, screening methods and costs of MRSA—a systematic literature review related to the prevalence in Germany. European Journal of Clinical Microbiology & Infectious Diseases, 31(10), 2497–2511. doi:10.1007/s10096-012-1632-8 
+                    
+                </p>
+            </div>
         </div>
     </body>
 </html>
